@@ -9,6 +9,7 @@ on:
     # Definição de qual repositório vai ser observado e aplicar os testes
     paths:
       - 'sgcapi'
+  workflow_dispatch:
 jobs:
   primeiro-job:
     #escolha de qual S.O vai executar os testes
