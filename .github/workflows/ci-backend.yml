@@ -1,16 +1,26 @@
-name: primeiro Workflow
+name: CI Back-end
 
-on: 
+on:
+  # é executado quando é realizado um push 
   push:
-
+    branches:
+      - 'main'
+    
+    # Definição de qual repositório vai ser observado e aplicar os testes
+    paths:
+      - 'sgcapi'
 jobs:
   primeiro-job:
+    #escolha de qual S.O vai executar os testes
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Primeiro Passo"
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Lista arquivos
-        run: ls ${{github.workspace}}
-      - name: Status
-        run: echo "Status ${{job.status}}."
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Maven Compile/Test
+        working-directory: sgcmapi/
+        run: mvn compile test
