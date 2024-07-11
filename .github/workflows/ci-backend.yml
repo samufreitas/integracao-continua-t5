@@ -1,23 +1,20 @@
+
 name: CI Back-end Main
 
 on:
-  # é executado quando é realizado um push 
   push:
     branches:
       - 'main'
-    
-    # Definição de qual repositório vai ser observado e aplicar os testes
     paths:
-      - 'sgcapi/**'
+      - 'sgcmapi/**'
   workflow_dispatch:
   workflow_call:
   pull_request:
     paths:
-      - 'sgcapi/**'
-    
+      - 'sgcmapi/**'
+
 jobs:
-  primeiro-job:
-    #escolha de qual S.O vai executar os testes
+  compile:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,8 +27,7 @@ jobs:
       - name: Maven Compile
         working-directory: sgcmapi/
         run: mvn compile
-  segundo-job:
-    #escolha de qual S.O vai executar os testes
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
