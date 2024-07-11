@@ -11,6 +11,7 @@ on:
       - 'sgcapi'
   workflow_dispatch:
   workflow_call:
+  pull_request:
     
 jobs:
   primeiro-job:
