@@ -1,4 +1,4 @@
-name: CI Back-end
+name: CI Back-end Main
 
 on:
   # é executado quando é realizado um push 
@@ -10,6 +10,8 @@ on:
     paths:
       - 'sgcapi'
   workflow_dispatch:
+  workflow_call:
+    
 jobs:
   primeiro-job:
     #escolha de qual S.O vai executar os testes
