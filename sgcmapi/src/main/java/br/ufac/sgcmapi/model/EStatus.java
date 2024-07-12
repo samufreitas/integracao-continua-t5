@@ -13,6 +13,7 @@ public enum EStatus {
         EStatus status = this;
         int index = ordinal();
         if (index > 0) {
+            // Alterando aqui para teste de commit automatico
             index = index + 1;
             if (index < values().length) {
                 status = values()[index];
